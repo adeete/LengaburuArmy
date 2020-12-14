@@ -1,27 +1,19 @@
-# FindingFalcone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+# LengaburuArmy
+This is an Angular10 project for GeekTrust Frontend Challenge. 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` in order to download all the required dependencies.
+Run `ng serve --open` to launch the application
+Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+## Prod server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng build` to build the application in prod mode.
+Run `npm start` to view the application in prod mode on local server  `http://localhost:5500/`.
 
-## Build
+## Hosted on heroko
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Navigate to <a href="https://lengaburu-army.herokuapp.com/" target="_blank">Finding Falcone</a> to view the project in action.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
