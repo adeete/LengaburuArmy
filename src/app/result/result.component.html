@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>{{ statusTitle }}</h1>
+  <h4>{{ statusMsg }}</h4>
+  <div *ngIf="status">
+    <div class="timeContainer">
+      <label for="time">Time Taken:</label>
+      <p name="time">{{ totalTimeTaken }}</p>
+    </div>
+    <div class="planetContainer">
+      <label for="planet">Planet Found:</label>
+      <p name="planet">{{ planetName | titlecase}}</p>
+    </div>
+  </div>
+  <Button (click)="restart()">{{ newMissionMsg }}</Button>
+</div>

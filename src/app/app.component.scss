@@ -1,0 +1,18 @@
+@import "./shared/variables";
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: map-get($colors, "themeColor");
+  background-image: url(../assets//img/dribbble_shot_rocket_illustration.jpg);
+  background-blend-mode: soft-light;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  h1 {
+    text-align: center;
+    color: map-get($colors, "info");
+    font-family: $headingFont;
+    padding: 0.5rem;
+  }
+}

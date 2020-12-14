@@ -1,0 +1,180 @@
+{
+  "mockSearchArmy": [
+    {
+      "selectedPlanet": {
+        "name": "Donlon",
+        "distance": 100
+      },
+      "selectedVehicle": {
+        "name": "Space ship",
+        "max_distance": 600,
+        "speed": 4,
+        "total_no": 2
+      },
+      "planets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availablePlanets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availableVehicles": [
+        { "name": "Space pod", "total_no": 2, "max_distance": 200, "speed": 2 },
+        {
+          "name": "Space rocket",
+          "total_no": 1,
+          "max_distance": 300,
+          "speed": 4
+        },
+        {
+          "name": "Space shuttle",
+          "total_no": 1,
+          "max_distance": 400,
+          "speed": 5
+        },
+        { "name": "Space ship", "total_no": 2, "max_distance": 600, "speed": 4 }
+      ]
+    },
+    {
+      "selectedPlanet": {
+        "name": "Jebing",
+        "distance": 200
+      },
+      "selectedVehicle": {
+        "name": "Space rocket",
+        "total_no": 1,
+        "max_distance": 300,
+        "speed": 4
+      },
+      "planets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availablePlanets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availableVehicles": [
+        { "name": "Space pod", "total_no": 2, "max_distance": 200, "speed": 2 },
+        {
+          "name": "Space rocket",
+          "total_no": 1,
+          "max_distance": 300,
+          "speed": 4
+        },
+        {
+          "name": "Space shuttle",
+          "total_no": 1,
+          "max_distance": 400,
+          "speed": 5
+        },
+        { "name": "Space ship", "total_no": 2, "max_distance": 600, "speed": 4 }
+      ]
+    },
+    {
+      "selectedPlanet": {
+        "name": "Enchai",
+        "distance": 200
+      },
+      "selectedVehicle": {
+        "name": "Space pod",
+        "total_no": 2,
+        "max_distance": 200,
+        "speed": 2
+      },
+      "planets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availablePlanets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availableVehicles": [
+        { "name": "Space pod", "total_no": 2, "max_distance": 200, "speed": 2 },
+        {
+          "name": "Space rocket",
+          "total_no": 1,
+          "max_distance": 300,
+          "speed": 4
+        },
+        {
+          "name": "Space shuttle",
+          "total_no": 1,
+          "max_distance": 400,
+          "speed": 5
+        },
+        { "name": "Space ship", "total_no": 2, "max_distance": 600, "speed": 4 }
+      ]
+    },
+    {
+      "selectedPlanet": {
+        "name": "Lerbin",
+        "distance": 500
+      },
+      "selectedVehicle": {
+        "name": "Space ship",
+        "total_no": 2,
+        "max_distance": 600,
+        "speed": 4
+      },
+      "planets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availablePlanets": [
+        { "name": "Donlon", "distance": 100 },
+        { "name": "Enchai", "distance": 200 },
+        { "name": "Jebing", "distance": 300 },
+        { "name": "Sapir", "distance": 400 },
+        { "name": "Lerbin", "distance": 500 },
+        { "name": "Pingasor", "distance": 600 }
+      ],
+      "availableVehicles": [
+        { "name": "Space pod", "total_no": 2, "max_distance": 200, "speed": 2 },
+        {
+          "name": "Space rocket",
+          "total_no": 1,
+          "max_distance": 300,
+          "speed": 4
+        },
+        {
+          "name": "Space shuttle",
+          "total_no": 1,
+          "max_distance": 400,
+          "speed": 5
+        },
+        { "name": "Space ship", "total_no": 2, "max_distance": 600, "speed": 4 }
+      ]
+    }
+  ]
+}
