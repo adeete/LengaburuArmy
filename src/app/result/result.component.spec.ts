@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ResultComponent } from './result.component';
 import { Location } from '@angular/common';
-import { LengaburuService } from '../shared/services/lengaburu.service';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import { LengaburuService } from '@services/lengaburu.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ResultComponent', () => {

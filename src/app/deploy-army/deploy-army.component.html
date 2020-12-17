@@ -33,11 +33,12 @@
                   vehicle.max_distance < troop.selectedPlanet.distance ||
                   vehicle.total_no === 0
                 "
-                [name]="'vehicleforarmy' + (idx + 1)"
+                [name]="vehicle + (idx+1)"
+                [id]="'vehicle' + (idx + 1) + (vechNo+1)"
                 [value]="vehicle.name"
                 (change)="updateArmy(vechNo, idx)"
               />
-              <label [for]="'vehicleforarmy' + (idx + 1)"
+              <label [for]="'vehicle' + (idx + 1) + (vechNo+1)"
                 >{{ vehicle.name }} ({{ vehicle.total_no }})</label
               >
             </ng-container>

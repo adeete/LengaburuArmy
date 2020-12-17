@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { areValidTroops, Army, updateTimeTaken } from '../shared/model/army';
-import { HttpService } from '../shared/services/http.service';
-import { LengaburuService } from '../shared/services/lengaburu.service';
+import { areValidTroops, Army, updateTimeTaken } from '@model/army';
+import { HttpService } from '@services/http.service';
+import { LengaburuService } from '@services/lengaburu.service';
 @Component({
   selector: 'app-deploy-army',
   templateUrl: './deploy-army.component.html',

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LengaburuService } from './lengaburu.service';
-import { mockArmy } from '../../../assets/mockData/lenbaguruArmy.json';
-import { mockSearchArmy } from '../../../assets/mockData/lenbaguruSearchArmy.json';
+import { mockArmy } from 'src/assets/mockData/lenbaguruArmy.json';
+import { mockSearchArmy } from 'src/assets/mockData/lenbaguruSearchArmy.json';
 
 describe('LengaburuService', () => {
   let service: LengaburuService;

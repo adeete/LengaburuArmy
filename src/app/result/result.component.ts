@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AttackFalconeResult } from '../shared/model/attackFalconeResult';
-import { LengaburuService } from '../shared/services/lengaburu.service';
+import { AttackFalconeResult } from '@model/attackFalconeResult';
+import { LengaburuService } from '@services/lengaburu.service';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 

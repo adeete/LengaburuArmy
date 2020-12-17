@@ -2,11 +2,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SortPipe } from '../shared/pipe/sort.pipe';
-import { HttpService } from '../shared/services/http.service';
-import { LengaburuService } from '../shared/services/lengaburu.service';
+import { HttpService } from '@services/http.service';
+import { LengaburuService } from '@services/lengaburu.service';
 import { DeployArmyComponent } from './deploy-army.component';
-import {mockArmy} from '../../assets/mockData/lenbaguruArmy.json';
-import { mockSearchArmy } from '../../assets/mockData/lenbaguruSearchArmy.json';
+import {mockArmy} from 'src/assets/mockData/lenbaguruArmy.json';
+import { mockSearchArmy } from 'src/assets/mockData/lenbaguruSearchArmy.json';
 
 describe('DeployArmyComponent', () => {
   let component: DeployArmyComponent;
