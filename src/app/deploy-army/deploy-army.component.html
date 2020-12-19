@@ -1,18 +1,10 @@
 <div class="container">
-  <h3>Select Planets you want to search in:</h3>
+  <h3>{{title | titlecase}}</h3>
   <div class="army-container">
     <div *ngFor="let troop of army?.troops; let idx = index" class="army">
-      <h4>Destination {{ idx + 1 }}</h4>
-      <app-select-planet [planets]="troop.availablePlanets" [troopNo]="idx+1" (selectPlanet)="selectPlanet($event, idx)"></app-select-planet>
-      <div
-        *ngIf="troop.selectedPlanet?.name.length > 0"
-        class="vehiclesContainer"
-      >
-        <app-select-vehicle [vehicles]="troop.availableVehicles" [troopNo]="idx+1" [distance]="troop.selectedPlanet.distance" (selectVehicle)="updateArmy($event, idx)"></app-select-vehicle>
-      </div>
-    </div>
+      <app-troop [troop]="troop" [troopNo]="idx" (newPlanet)="selectPlanet($event, idx)" (newVehicle)="selectVehicle($event, idx)"></app-troop>
   </div>
-
-  <h3 class="timeText">Total Time Taken: {{ army.timeTaken }}</h3>
-  <button (click)="findFalcone()" class="btn">Find Falcone</button>
+  </div>
+  <h3 class="timeText">{{totalTimeText }} : {{army.timeTaken }}</h3>
+  <button (click)="findFalcone()" [disabled]="!isValidArmy()" class="btn">{{findFalconeActionText}}</button>
 </div>

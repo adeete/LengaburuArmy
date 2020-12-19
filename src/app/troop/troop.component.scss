@@ -1,0 +1,67 @@
+@import "variables";
+.container {
+  padding: 0;
+  * {
+    margin: 0.2rem 0;
+  }
+  h4 {
+    text-align: center;
+  }
+  .planetContainer {
+    position: relative;
+  }
+  .planetInput {
+    background: transparent;
+    border: 0.7px solid map-get($colors, 'info');;
+    border-radius: 2rem;
+    text-align: center;
+    height: 2rem;
+    padding: 0.2rem;
+    outline: none;
+    color: map-get($colors, 'info');;
+  }
+
+  .planetInput.ng-invalid.ng-touched:not(form) {
+    border: 2px solid map-get($colors, 'errColor'); /* red */
+  }
+
+  .planetErr {
+    color: map-get($colors, 'errColor');
+    font-size: 0.7rem;
+    font-weight: 600;
+    position: absolute;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: right;
+    right: 0.5rem;
+  }
+
+  .vehiclesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    fieldset {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border-width: 1px;
+      legend {
+        font-family: $headingFont;
+        letter-spacing: 0.2rem;
+      }
+      fieldset {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border-width: 1px;
+        legend {
+          font-family: $headingFont;
+          letter-spacing: 0.2rem;
+        }
+      }
+      label {
+        margin: 0 0.5rem;
+        font-weight: 800;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

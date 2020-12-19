@@ -1,14 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AttackFalconeResult } from '@model/attackFalconeResult.model';
-import { LengaburuService } from '@services/lengaburu.service';
-import { Location } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { AttackFalconeResult } from "@model/attackFalconeResult.model";
+import { LengaburuService } from "@services/lengaburu.service";
+import { Location } from "@angular/common";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.scss'],
+  selector: "app-result",
+  templateUrl: "./result.component.html",
+  styleUrls: ["./result.component.scss"],
 })
 
 /*
@@ -17,13 +17,13 @@ Component to display search outcome.
 export class ResultComponent implements OnInit, OnDestroy {
   totalTimeTaken: number;
   private readonly successResultMsg =
-    'Success! Congratulations on Finding Falcone. King Shah is mighty pleased.';
-  private readonly successResultStatusTitle = 'Found Falcone!';
-  private readonly failureResultStatusTitle = 'Mission Failed!';
+    "Success! Congratulations on Finding Falcone. King Shah is mighty pleased.";
+  private readonly successResultStatusTitle = "Found Falcone!";
+  private readonly failureResultStatusTitle = "Mission Failed!";
   private readonly failureResultMsg =
-    'Could not find the queen AI Falcone, try searching in different planets.';
-  private readonly missionOnSuccessMsg = 'Start Again';
-  private readonly missionOnFailureMsg = 'Retry';
+    "Could not find the queen AI Falcone, try searching in different planets.";
+  private readonly missionOnSuccessMsg = "Start Again";
+  private readonly missionOnFailureMsg = "Retry";
   status: boolean;
   statusTitle: string;
   statusMsg: string;
@@ -41,7 +41,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.subscription$ = this.lengaburuService.warResult.subscribe((result) => {
       if (Object.keys(result).length > 0) this.displayResult(result);
       this.totalTimeTaken = parseInt(
-        this.route.snapshot.paramMap.get('timeTaken')
+        this.route.snapshot.paramMap.get("timeTaken")
       );
     });
   }
@@ -52,13 +52,13 @@ export class ResultComponent implements OnInit, OnDestroy {
    * @return {void}
    */
   displayResult(attackResult: AttackFalconeResult) {
-    if (attackResult.status === 'success') {
+    if (attackResult.status === "success") {
       this.updateStatus(
         this.successResultStatusTitle,
         this.successResultMsg,
         true,
         this.missionOnSuccessMsg,
-        attackResult.planet_name
+        attackResult.planetName
       );
     } else {
       this.updateStatus(

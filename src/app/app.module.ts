@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { DeployArmyComponent } from './deploy-army/deploy-army.component';
 import { ResultComponent } from './result/result.component';
 import { SortPipe } from './shared/pipe/sort.pipe';
-import { SelectPlanetComponent } from './select-planet/select-planet.component';
-import { SelectVehicleComponent } from './select-vehicle/select-vehicle.component';
+import { ValidPlanetDirective } from './shared/directive/valid-planet.directive';
+import { TroopComponent } from './troop/troop.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { SelectVehicleComponent } from './select-vehicle/select-vehicle.componen
     DeployArmyComponent,
     ResultComponent,
     SortPipe,
-    SelectPlanetComponent,
-    SelectVehicleComponent
+    ValidPlanetDirective,
+    TroopComponent,
   ],
   imports: [
     BrowserModule,

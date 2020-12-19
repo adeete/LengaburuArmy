@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import {
   AttackFalconeRequest,
 } from '@model/attackFalconeRequest.model';
+import { AttackFalconeResult } from '@model/attackFalconeResult.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,6 @@ export class LengaburuService {
    * @return {void}
    */
   searchResult(oResult: any) {
-    this.warResultSource.next(oResult);
+    this.warResultSource.next(new AttackFalconeResult().deserialize(oResult));
   }
 }
