@@ -1,13 +1,5 @@
 import { Deserializable } from "./deserializable.model";
 
-
-export function findVehicle(vehicles: Vehicle[], selectedVehicle: string): number {
-    if(!vehicles) return -1;
-    return vehicles.findIndex(
-        (vehicle) => vehicle.name === selectedVehicle
-      );
-}
-
 export class Vehicle implements Deserializable{
     name: string = "";
     totalNo: number = 0;

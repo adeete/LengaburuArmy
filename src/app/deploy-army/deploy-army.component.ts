@@ -14,6 +14,10 @@ import { LengaburuService } from '@services/lengaburu.service';
 Component to form army for searching Falcone.
 */
 export class DeployArmyComponent implements OnInit, OnDestroy {
+  title: string = "select planets you want to search in:";
+  troopTitle: string = "Destination";
+  totalTimeText: string = "Total Time Taken";
+  findFalconeActionText: string = "Find Falcone";
   army: Army;
   noOfTroopsAllowed = 4;
   private aSubscription: Subscription;
@@ -45,8 +49,6 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    */
   selectPlanet(planet: string, troopNo: number) {
     this.army.updateTroopsPlanetOnSelection(troopNo, planet);
-    console.log(this.army);
-    
   }
 
   /**
@@ -56,9 +58,8 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * @param {number} troopNo - An Integer param
    * @return {void}
    */
-  updateArmy(vehicleNo: number, troopNo: number) {
+  selectVehicle(vehicleNo: number, troopNo: number) {
     this.army.updateTroopsVehiclesOnSelection(vehicleNo, troopNo)
-    this.army.updateTimeTaken();
   }
 
   /**
@@ -69,6 +70,8 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * @return {void}
    */
   findFalcone() {
+    console.log("find");
+    
     if (this.isValidArmy()) {
       const selectedPlanets = this.army.getSelectedPlanetsName(),
             selectedVehicles = this.army.getSelectedVehiclesName();

@@ -2,9 +2,10 @@
 
 $colors: (
   info: #fff,
-  mainAccent: #6f97e9,
+  mainAccent: #3667ca,
   pinkAccent: #FF299C,
-  themeColor: rgba(28, 37, 65, 1)
+  themeColor: rgba(28, 37, 65, 1),
+  errColor: #d80400
 );
 
 @mixin buttonStyle() {
