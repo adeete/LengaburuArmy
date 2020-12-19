@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { DeployArmyComponent } from './deploy-army/deploy-army.component';
 import { ResultComponent } from './result/result.component';
 import { SortPipe } from './shared/pipe/sort.pipe';
+import { SelectPlanetComponent } from './select-planet/select-planet.component';
+import { SelectVehicleComponent } from './select-vehicle/select-vehicle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DeployArmyComponent,
     ResultComponent,
-    SortPipe
+    SortPipe,
+    SelectPlanetComponent,
+    SelectVehicleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<div class="container">
+  <form>
+    <fieldset>
+      <legend>{{title | titlecase}}</legend>
+      <ng-container *ngFor="let vehicle of vehicles; let vechNo = index">
+        <div class="vehicleContainer">
+          <input
+            type="radio"
+            [disabled]="
+              !vehicle.canBeSelected(distance) && !vehicleSelection.checked
+            "
+            [name]="vehicleForTroop + (troopNo + 1)"
+            [id]="'vehicleNo' + (vechNo + 1) + 'forTroop' + (troopNo + 1)"
+            #vehicleSelection
+            [value]="vehicle.name"
+            (change)="selectVehicle(vechNo)"
+          />
+          <label [for]="'vehicleNo' + (vechNo + 1) + 'forTroop' + (troopNo + 1)"
+            >{{ vehicle.name }} ({{ vehicle.totalNo }})</label
+          >
+        </div>
+      </ng-container>
+    </fieldset>
+  </form>
+</div>

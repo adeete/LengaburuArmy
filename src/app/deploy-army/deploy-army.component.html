@@ -1,54 +1,18 @@
 <div class="container">
   <h3>Select Planets you want to search in:</h3>
   <div class="army-container">
-    <div *ngFor="let troop of Army; let idx = index" class="army">
+    <div *ngFor="let troop of army?.troops; let idx = index" class="army">
       <h4>Destination {{ idx + 1 }}</h4>
-      <input
-        class="planetInput"
-        [attr.list]="'planets' + (idx + 1)"
-        #planet
-        placeholder="Select Planet ..."
-        (change)="selectPlanet(planet.value, idx)"
-      />
-      <datalist id="planets{{ idx + 1 }}">
-        <ng-container
-          *ngFor="let planet of troop.availablePlanets | sort: 'name'"
-        >
-          <option [ngValue]="planet.name">{{ planet.name }}</option>
-        </ng-container>
-      </datalist>
-
+      <app-select-planet [planets]="troop.availablePlanets" [troopNo]="idx+1" (selectPlanet)="selectPlanet($event, idx)"></app-select-planet>
       <div
         *ngIf="troop.selectedPlanet?.name.length > 0"
         class="vehiclesContainer"
       >
-        <ng-container
-          *ngFor="let vehicle of troop.availableVehicles; let vechNo = index"
-        >
-          <div class="vehicleContainer">
-            <ng-container>
-              <input
-                type="radio"
-                [disabled]="
-                  vehicle.max_distance < troop.selectedPlanet.distance ||
-                  vehicle.total_no === 0
-                "
-                [name]="vehicle + (idx+1)"
-                [id]="'vehicle' + (idx + 1) + (vechNo+1)"
-                [value]="vehicle.name"
-                (change)="updateArmy(vechNo, idx)"
-              />
-              <label [for]="'vehicle' + (idx + 1) + (vechNo+1)"
-                >{{ vehicle.name }} ({{ vehicle.total_no }})</label
-              >
-            </ng-container>
-          </div>
-        </ng-container>
+        <app-select-vehicle [vehicles]="troop.availableVehicles" [troopNo]="idx+1" [distance]="troop.selectedPlanet.distance" (selectVehicle)="updateArmy($event, idx)"></app-select-vehicle>
       </div>
     </div>
   </div>
 
-  <h3 class="timeText">Total Time Taken: {{ totalTimeTaken }}</h3>
-
+  <h3 class="timeText">Total Time Taken: {{ army.timeTaken }}</h3>
   <button (click)="findFalcone()" class="btn">Find Falcone</button>
 </div>

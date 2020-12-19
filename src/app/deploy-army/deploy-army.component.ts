@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { areValidTroops, Army, updateTimeTaken } from '@model/army';
+import { Army } from '@model/army.model';
 import { HttpService } from '@services/http.service';
 import { LengaburuService } from '@services/lengaburu.service';
 @Component({
@@ -14,9 +14,8 @@ import { LengaburuService } from '@services/lengaburu.service';
 Component to form army for searching Falcone.
 */
 export class DeployArmyComponent implements OnInit, OnDestroy {
-  Army: Army[];
-  noOfPlanetsAllowed = 4;
-  totalTimeTaken = 0;
+  army: Army;
+  noOfTroopsAllowed = 4;
   private aSubscription: Subscription;
   constructor(
     private lengaburuService: LengaburuService,
@@ -25,16 +24,12 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.Army = this.lengaburuService.initializeTroops(this.noOfPlanetsAllowed);
+    this.army = new Army(this.noOfTroopsAllowed);
 
     //fetch lengaburu's army and initialize all the troops present in the @param{Army} Army
     this.aSubscription = this.httpService.fetchLengaburuArmy().subscribe(
       (result) => {
-        this.Army.forEach((troop) => {
-          troop.planets = result[0];
-          troop.availablePlanets = JSON.parse(JSON.stringify(result[0]));
-          troop.availableVehicles = JSON.parse(JSON.stringify(result[1]));
-        });
+        this.army.deserialize(result);
       },
       (error) => console.log(error)
     );
@@ -45,31 +40,25 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * remove the selected planet from the availablePlanets[] of other troop in order to
    * prevent other troops from selecting the same planet.
    * @param {string} planet - A string param
-   * @param {number} armyNo - An Integer param
+   * @param {number} troopNo - An Integer param
    * @return {void}
    */
-  selectPlanet(planet: string, armyNo: number) {
-    this.Army = this.lengaburuService.updateAvailablePlanets(
-      this.Army,
-      planet,
-      armyNo
-    );
+  selectPlanet(planet: string, troopNo: number) {
+    this.army.updateTroopsPlanetOnSelection(troopNo, planet);
+    console.log(this.army);
+    
   }
 
   /**
    * This function updates the vehicle selected for the current troop and also calculates the
    * total time taken - distance/speed
    * @param {number} vehicleNo - An Integer param
-   * @param {number} armyNo - An Integer param
+   * @param {number} troopNo - An Integer param
    * @return {void}
    */
-  updateArmy(vehicleNo: number, armyNo: number) {
-    this.Army = this.lengaburuService.updateAvailableVehicles(
-      this.Army,
-      vehicleNo,
-      armyNo
-    );
-    this.totalTimeTaken = updateTimeTaken(this.Army);
+  updateArmy(vehicleNo: number, troopNo: number) {
+    this.army.updateTroopsVehiclesOnSelection(vehicleNo, troopNo)
+    this.army.updateTimeTaken();
   }
 
   /**
@@ -81,8 +70,10 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    */
   findFalcone() {
     if (this.isValidArmy()) {
+      const selectedPlanets = this.army.getSelectedPlanetsName(),
+            selectedVehicles = this.army.getSelectedVehiclesName();
       this.httpService
-        .findFalcone(this.lengaburuService.sendTroops(this.Army))
+        .findFalcone(this.lengaburuService.sendTroops(selectedPlanets, selectedVehicles))
         .subscribe(
           (result) => {
             this.lengaburuService.searchResult(result);
@@ -98,7 +89,7 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * @return {void}
    */
   displayResult() {
-    this.router.navigate(['/result', { timeTaken: this.totalTimeTaken }]);
+    this.router.navigate(['/result', { timeTaken: this.army.timeTaken }]);
   }
 
   /**
@@ -106,7 +97,7 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * @return {boolean}
    */
   isValidArmy(): boolean {
-    return areValidTroops(this.Army);
+    return this.army.areValidTroops();
   }
   ngOnDestroy() {
     this.aSubscription.unsubscribe();

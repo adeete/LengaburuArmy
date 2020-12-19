@@ -1,0 +1,20 @@
+<div class="container">
+  <form action="">
+    <input
+        class="planetInput"
+        [attr.list]="'planets' + (troopNo + 1)"
+        #planet
+        placeholder="Select Planet ..."
+        (change)="selectPlanet(planet.value)"
+        required
+      />
+      <datalist [id]="'planets' + (troopNo + 1)">
+        <ng-container
+          *ngFor="let planet of planets | sort: 'name'; let idx = index"
+        >
+          <option [data-value]="idx" *ngIf="planet.canBeSelected" [value]="planet.name">
+        </ng-container>
+      </datalist>
+      <p>{{distance}}</p>
+  </form>
+</div>

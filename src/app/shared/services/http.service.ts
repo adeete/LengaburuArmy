@@ -6,9 +6,9 @@ import {
 } from '@angular/common/http';
 import { forkJoin, Observable, throwError } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { Planet } from '../model/planet';
-import { Vehicle } from '../model/vehicle';
-import { AttackFalcone } from '../model/attackFalcone';
+import { Planet } from '@model/planet.model';
+import { Vehicle } from '@model/vehicle.model';
+import { AttackFalconeRequest } from '@model/attackFalconeRequest.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,7 @@ export class HttpService {
    * @param {AttackFalcone} oAttackRequest - An Object param
    * @return {Observable} returns an observable
    */
-  findFalcone(oAttackRequest: AttackFalcone): Observable<any> {
+  findFalcone(oAttackRequest: AttackFalconeRequest): Observable<any> {
     const headers = new HttpHeaders({ Accept: 'application/json' });
     return this.http
       .post(`${this.sUrl}/token`, null, {
@@ -52,7 +52,7 @@ export class HttpService {
           headers.append('Content-Type', 'application/json');
           return oAttackRequest;
         }),
-        mergeMap((data: AttackFalcone) =>
+        mergeMap((data: AttackFalconeRequest) =>
           this.http.post(`${this.sUrl}/find`, data, { headers: headers }).pipe(
             catchError(this.handleError)
           )
