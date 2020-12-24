@@ -82,7 +82,8 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
             this.lengaburuService.searchResult(result);
             this.displayResult();
           },
-          (error) => console.log(error)
+          (error) => console.log(error),
+          () => console.log("completed")
         );
     }
   }

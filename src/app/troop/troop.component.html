@@ -21,7 +21,7 @@
             let idx = index
           "
         >
-          <option *ngIf="planet.canBeSelected" [value]="planet.name"></option
+          <option *ngIf="planet.canBeSelected" [ngValue]="planet">{{planet.name}}</option
         ></ng-container>
       </datalist>
       <br />

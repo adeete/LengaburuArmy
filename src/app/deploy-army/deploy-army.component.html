@@ -6,5 +6,5 @@
   </div>
   </div>
   <h3 class="timeText">{{totalTimeText }} : {{army.timeTaken }}</h3>
-  <button (click)="findFalcone()" [disabled]="!isValidArmy()" class="btn">{{findFalconeActionText}}</button>
+  <button (click)="findFalcone()" [disabled]="!isValidArmy()" class="btn" [title]="!isValidArmy()?'Please deploy all troops':'Attack'">{{findFalconeActionText}}</button>
 </div>

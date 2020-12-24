@@ -7,6 +7,7 @@ import { LengaburuService } from '@services/lengaburu.service';
 import { DeployArmyComponent } from './deploy-army.component';
 import {mockArmy} from 'src/assets/mockData/lenbaguruArmy.json';
 import { mockSearchArmy } from 'src/assets/mockData/lenbaguruSearchArmy.json';
+import { Army } from '@model/army.model';
 
 describe('DeployArmyComponent', () => {
   let component: DeployArmyComponent;
@@ -30,10 +31,11 @@ describe('DeployArmyComponent', () => {
   });
 
   it('should update all available planets to select from', () => {
-    const selectedPlanet = mockArmy[0].planets[0].name, troopNo = 0;
-    component.Army = mockArmy;
+    const selectedPlanet = mockArmy[0][0][0].name, troopNo = 0;
+    component.army = new Army(4);
+    component.army.deserialize(mockArmy[0]);
     component.selectPlanet(selectedPlanet, troopNo);
-    component.Army.forEach((troop, idx) => {
+    component.army.troops.forEach((troop, idx) => {
       if(idx !== troopNo) {
          expect(troop.availablePlanets.findIndex((planet) => planet.name === selectedPlanet)).toBe(-1);
       }
@@ -41,27 +43,29 @@ describe('DeployArmyComponent', () => {
   });
 
   it('should update all available vehicles to choose from', () => {
-    const selectedVehNo = 3, troopNo = 0, noOfVehiclesAvailable = mockArmy[troopNo].availableVehicles[selectedVehNo].total_no;
-    component.Army = mockArmy;
-    
-    component.updateArmy(selectedVehNo, troopNo);
+    const selectedVehNo = 3, troopNo = 0, noOfVehiclesAvailable = mockArmy[0][1][0].totalNo;
+    component.army = new Army(4);
+    component.army.deserialize(mockArmy[0]);
+    component.selectVehicle(selectedVehNo, troopNo);
 
-    component.Army.forEach((troop, idx) => {
+    component.army.troops.forEach((troop, idx) => {
       if(idx !== troopNo) {
-         expect(troop.availableVehicles[selectedVehNo].total_no).toBe(noOfVehiclesAvailable-1);
+         expect(troop.availableVehicles[selectedVehNo].totalNo).toBe(noOfVehiclesAvailable-1);
       }
     });
     
-    expect(component.totalTimeTaken).toBe(25);
+    expect(component.army.timeTaken).toBe(25);
   });
 
   it('should not be  a valid army', ()=> {
-    component.Army = mockArmy;
+    component.army = new Army(4);
+    component.army.deserialize(mockArmy[0]);
     expect(component.isValidArmy()).toBeFalsy();
   });
 
   it('should be  a valid army', ()=> {
-    component.Army = mockSearchArmy;
+    component.army = new Army(4);
+    component.army.deserialize(mockArmy[0]);
     expect(component.isValidArmy()).toBeTruthy();
   });
 
