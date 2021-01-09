@@ -1,4 +1,5 @@
 <div class="container">
   <h1>{{ title | titlecase }}</h1>
+  <app-start-attack *ngIf="loading"></app-start-attack>
   <router-outlet></router-outlet>
 </div>

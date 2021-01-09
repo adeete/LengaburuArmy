@@ -38,12 +38,10 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     //Get the search result
-    this.subscription$ = this.lengaburuService.warResult.subscribe((result) => {
-      if (Object.keys(result).length > 0) this.displayResult(result);
-      this.totalTimeTaken = parseInt(
-        this.route.snapshot.paramMap.get("timeTaken")
-      );
-    });
+    this.subscription$ = this.route.data.subscribe((data) => {
+      this.displayResult(data.result);
+      this.totalTimeTaken = +this.route.snapshot.params['timeTaken'];
+    })
   }
 
   /**

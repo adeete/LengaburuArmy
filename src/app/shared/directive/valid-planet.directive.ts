@@ -16,7 +16,7 @@ export class ValidPlanetDirective implements Validator {
     const  val = control.value,
             idx = this.currentPlanets.findIndex((planet) => planet.name === val);
             
-    if(idx === -1) return {invalidPlanet: true};
+    if(idx === -1) return {invalidPlanet: false};
     return (!this.currentPlanets[idx].canBeSelected)?{invalidSelection: true}:null;
   }
   

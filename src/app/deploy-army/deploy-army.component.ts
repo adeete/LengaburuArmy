@@ -75,16 +75,8 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
     if (this.isValidArmy()) {
       const selectedPlanets = this.army.getSelectedPlanetsName(),
             selectedVehicles = this.army.getSelectedVehiclesName();
-      this.httpService
-        .findFalcone(this.lengaburuService.sendTroops(selectedPlanets, selectedVehicles))
-        .subscribe(
-          (result) => {
-            this.lengaburuService.searchResult(result);
-            this.displayResult();
-          },
-          (error) => console.log(error),
-          () => console.log("completed")
-        );
+    
+    this.router.navigate(['/result', { timeTaken: this.army.timeTaken, selectedPlanet: selectedPlanets, selectedVehicles: selectedVehicles}]);
     }
   }
 
@@ -93,7 +85,6 @@ export class DeployArmyComponent implements OnInit, OnDestroy {
    * @return {void}
    */
   displayResult() {
-    this.router.navigate(['/result', { timeTaken: this.army.timeTaken }]);
   }
 
   /**

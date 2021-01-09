@@ -9,6 +9,8 @@ import { ResultComponent } from './result/result.component';
 import { SortPipe } from './shared/pipe/sort.pipe';
 import { ValidPlanetDirective } from './shared/directive/valid-planet.directive';
 import { TroopComponent } from './troop/troop.component';
+import { ResultResolver } from './shared/services/result-resolver.service';
+import { StartAttackComponent } from './start-attack/start-attack.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { TroopComponent } from './troop/troop.component';
     SortPipe,
     ValidPlanetDirective,
     TroopComponent,
+    StartAttackComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,9 @@ import { TroopComponent } from './troop/troop.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ResultResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
